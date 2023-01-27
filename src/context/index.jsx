@@ -7,9 +7,9 @@ const apiUrl = ( process.env.NODE_ENV=="development" ) ? appConfig.dev_config.ap
     
 export default function Context({ children }) {
     return (
-        <Context.Provider value={{ apiUrl }}>
+        <context.Provider value={{ apiUrl }}>
             { children }
-        </Context.Provider>
+        </context.Provider>
     )
 }
 
