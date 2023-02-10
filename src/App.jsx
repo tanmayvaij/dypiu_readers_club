@@ -1,8 +1,11 @@
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
+
 import Context from "./context";
+
+import WebNavbar from "./components/WebNavbar";
+import WebFooter from "./components/WebFooter";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -11,7 +14,9 @@ import Registration from "./pages/Registration";
 export default function App() {
     return (
         <Context>
-            <Navbar/>
+
+            <WebNavbar/>
+
             <BrowserRouter>
                 <Routes>
                     <Route exact path="/" element={ <Home/> } />
@@ -19,6 +24,9 @@ export default function App() {
                     <Route exact path="/registration" element={ <Registration/> } />
                 </Routes>
             </BrowserRouter>
+
+            <WebFooter/>
+
         </Context>
     )
 }
