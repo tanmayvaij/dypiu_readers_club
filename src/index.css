@@ -18,6 +18,6 @@ body {
     background-size: 100% 100%;
 }
 
-#main-title, #quote {
+#main-title, #quote, #about-title, #team-title {
     font-family: 'Satisfy', cursive;
 }

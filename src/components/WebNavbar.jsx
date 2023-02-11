@@ -1,6 +1,17 @@
 import { Navbar, Dropdown, Avatar } from "flowbite-react"
+import { NavLink, useLocation } from "react-router-dom"
 
 export default function WebNavbar() {
+
+    const loc = useLocation()
+
+    const navLinks = [
+        { path: "/", name: "Home" },
+        { path: "/library", name: "Library" },
+        { path: "/report", name: "Report" },
+        { path: "/about", name: "About Us" }
+    ]
+
     return (
         <Navbar
             fluid={true}
@@ -15,14 +26,15 @@ export default function WebNavbar() {
             </Navbar.Brand>
 
             <div className="flex md:order-2">
+                
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
                     label={
-                        <Avatar 
-                            alt="User settings" 
-                            img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
-                            rounded={true} 
+                        <Avatar
+                            alt="User settings"
+                            img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                            rounded={true}
                         />
                     }
                 >
@@ -35,28 +47,35 @@ export default function WebNavbar() {
                         </span>
                     </Dropdown.Header>
 
-                    <Dropdown.Item>
-                        Dashboard
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                        Settings
-                    </Dropdown.Item>
-                    <Dropdown.Item>
-                        Earnings
-                    </Dropdown.Item>
+                    <Dropdown.Item> Dashboard </Dropdown.Item>
+                    <Dropdown.Item> Settings </Dropdown.Item>
+                    <Dropdown.Item> Earnings </Dropdown.Item>
+
                     <Dropdown.Divider />
-                    <Dropdown.Item>
-                        Sign out
-                    </Dropdown.Item>
+
+                    <Dropdown.Item> Sign out </Dropdown.Item>
+
                 </Dropdown>
+
                 <Navbar.Toggle />
+
             </div>
 
             <Navbar.Collapse >
-                <Navbar.Link href="/navbars" active={true}>Home</Navbar.Link>
-                <Navbar.Link href="/navbars">Library</Navbar.Link>
-                <Navbar.Link href="/navbars">Report</Navbar.Link>
-                <Navbar.Link href="/navbars">About Us</Navbar.Link>
+
+                {
+                    navLinks.map((link) => {
+                        return (
+                            <NavLink
+                                className={`${loc.pathname == link.path ? "text-white" : "text-gray-400"} hover:text-white`}
+                                to={link.path}
+                            >
+                                {link.name}
+                            </NavLink>
+                        )
+                    })
+                }
+
             </Navbar.Collapse>
 
         </Navbar>
