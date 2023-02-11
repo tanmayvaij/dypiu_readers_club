@@ -26,7 +26,7 @@ export default function WebNavbar() {
             </Navbar.Brand>
 
             <div className="flex md:order-2">
-                
+
                 <Dropdown
                     arrowIcon={false}
                     inline={true}
@@ -61,12 +61,13 @@ export default function WebNavbar() {
 
             </div>
 
-            <Navbar.Collapse >
+            <Navbar.Collapse className="text-center" >
 
                 {
-                    navLinks.map((link) => {
+                    navLinks.map((link, id) => {
                         return (
                             <NavLink
+                                key={id}
                                 className={`${loc.pathname == link.path ? "text-white" : "text-gray-400"} hover:text-white`}
                                 to={link.path}
                             >
