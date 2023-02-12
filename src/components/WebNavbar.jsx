@@ -17,12 +17,15 @@ export default function WebNavbar() {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
+            <Navbar.Brand href="">
                 <img
-                    src="title_img.png"
+                    src="logo.png"
                     className="mr-3 h-6 sm:h-9 rounded"
                     alt="Flowbite Logo"
                 />
+                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                    READIT
+                </span>
             </Navbar.Brand>
 
             <div className="flex md:order-2">
